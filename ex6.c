@@ -1,6 +1,6 @@
 #include "stdio.h"
 
-int reverse(int A[], int n){
+void reverse(int A[], int n){
     int aux;
     for(int i = 0; i < n / 2; i++){
         printf("A[%d] = %d; A[%d] = %d;\n", i, A[i], n - (i + 1), A[n - (i + 1)]);
