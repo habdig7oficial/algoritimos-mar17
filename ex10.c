@@ -1,28 +1,34 @@
 #include "stdio.h"
 #include "stdbool.h"
 
-bool palindromo(char str[], int n){
-    char aux;
-    for(int i = 0; i < n / 2; i++)
-        if(str[i] != str[n - (i + 2)])
-            return false;
-    return true;
-        
+bool sub_seq(int A[], int n, int B[], int m){
+
+    int j = 0;
+    for(int i = 0; (i < n); i++)
+        if(A[i] == B[j])
+            j++;
+
+    printf("j: %d\n", j);
+    
+    if(j == m)
+        return true;
+    else 
+        return false;
 }
 
 int main(){
-
-    // 
-    char str[] = "ovo";
-
-    int size = sizeof(str) / sizeof(str[0]); 
-
-    palindromo(str, size);
-
-    printf("-------\n");
     
-    for(int i = 0; i < size; i++)
-        printf("str[%d] = %c; str[%d] = %c;\n", i, str[i], size - (i + 2), str[size - (i + 2)]);
+    int va[] = {1,2,3,4,5,6};
+
+    int vb[] = {2,4,5};
+
+    int size_n = sizeof(va) / sizeof(va[0]);
+    int size_m = sizeof(vb) / sizeof(vb[0]);
+
+
+    bool res = sub_seq(va, size_n, vb, size_m);
+
+    printf("%s", res? "true": "false");
 
     return 0;
 }

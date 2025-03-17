@@ -1,33 +1,32 @@
-/* ha terminar */
-
-
-
-
-
-
-
 #include "stdio.h"
 
-float media_turma(float notas[], int n){
-    float sum = 0;
+double media_turma(double notas[], int n){
+    double sum = 0;
     for(int i = 0; i < n; i++)
         sum += notas[i];
     return sum / n;
 
 }
 
-int contar_acima_media(float notas, int n, int media){
+int contar_acima_media(double notas[], int n, double media){
+    int acc = 0;
     for(int i = 0; i < n; i++)
-        printf("%n", )
+        if(notas[i] > media)
+            acc++;
+
+    return acc;
 }
 
 int main(){
 
-    int va[] = {-1, -2, 0, -3, 6};
+    double notas[] = {10, 9, 8, 7, 6, 5};
 
-    int size = sizeof(va) / sizeof(va[0]); 
+    int size = sizeof(notas) / sizeof(notas[0]); 
 
-    printf("%d",buscar(va, size, 1));
+    double med = media_turma(notas, size);
+
+
+    printf("Média: %f\nAlunos Acima da Média: %d\n", med, contar_acima_media(notas, size, med));
 
     return 0;
 }
